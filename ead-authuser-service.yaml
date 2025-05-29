@@ -1,0 +1,72 @@
+server:
+  port: 8087
+  servlet:
+    context-path: '/ead-authuser/'
+
+spring:
+  application:
+    name: ead-authuser-service
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/ead-authuser-v2
+    username: postgres
+    password: banco123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non-contextual-creation: true
+  output:
+    ansi:
+      enabled: Always
+  rabbitmq:
+    addresses: amqps://dgjilnqh:wRNY9PsOw54Qjs6Fwszyb7dfd4xhxHAF@beaver.rmq.cloudamqp.com/dgjilnqh
+
+
+ead:
+  api:
+    url:
+      course: 'http://ead-course-service/ead-course'
+  broker:
+    exchange:
+      userEvent: ead.userevent
+
+authuser:
+  refreshscope:
+    name: Michelli Brito UPDATE!!!!!!!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - refresh
+          - health            
+
+logging:
+  level:
+    com.ead: TRACE
+    root: INFO
+    org.springframework.web: DEBUG
+    org.hibernate: INFO
+
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      circuitbreakerInstance:
+        slidingWindowSize: 30
+        permittedNumberOfCallsInHalfOpenState: 2
+        slidingWindowType: TIME_BASED
+        minimumNumberOfCalls: 2
+        waitDurationInOpenState: 15s
+        failureRateThreshold: 80
+  retry:
+    instances:
+      retryInstance:
+        maxAttempts: 3
+        waitDuration: 5s
+
