@@ -23,7 +23,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    addresses: amqps://dgjilnqh:wRNY9PsOw54Qjs6Fwszyb7dfd4xhxHAF@beaver.rmq.cloudamqp.com/dgjilnqh
+    addresses: amqps://pqgivwnz:s5tfPEgJioaUoBhaRO_LC72MJjgmGkZ_@beaver.rmq.cloudamqp.com/pqgivwnz
 
 
 ead:
