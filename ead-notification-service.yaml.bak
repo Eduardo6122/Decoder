@@ -9,7 +9,7 @@ spring:
   datasource:
     url:  jdbc:postgresql://localhost:5432/ead-notification-v2
     username: postgres
-    password: admin
+    password: banco123
   jpa:
     hibernate:
       ddl-auto: update
@@ -23,7 +23,7 @@ spring:
     ansi:
       enabled: Always
   rabbitmq:
-    addresses: amqps://pqgivwnz:s5tfPEgJioaUoBhaRO_LC72MJjgmGkZ_@beaver.rmq.cloudamqp.com/pqgivwnz
+    addresses: amqps://dgjilnqh:wRNY9PsOw54Qjs6Fwszyb7dfd4xhxHAF@beaver.rmq.cloudamqp.com/dgjilnqh
 
 
 logging:
